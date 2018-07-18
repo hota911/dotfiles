@@ -1,0 +1,14 @@
+# This is Git's per-user configuration file.
+[user]
+    name = Hiroyuki Ota
+    email = hota@flywheel.jp
+
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    push-b = !CURRENT=$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin $CURRENT
+    lg = log --graph --oneline --decorate=full -20 --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
+
+[core]
+    editor = emacs
