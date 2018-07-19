@@ -1,14 +1,20 @@
 # This is Git's per-user configuration file.
 [user]
-    name = Hiroyuki Ota
-    email = hota@flywheel.jp
+	name = Hiroyuki Ota
+	email = hota@flywheel.jp
 
 [alias]
-    st = status
-    ci = commit
-    co = checkout
-    push-b = !CURRENT=$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin $CURRENT
-    lg = log --graph --oneline --decorate=full -20 --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
+	st = status
+	ci = commit
+	co = checkout
+	push-b = !CURRENT=$(git rev-parse --abbrev-ref HEAD) && git push --set-upstream origin $CURRENT
+	lg = log --graph --oneline --decorate=full -20 --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
+	lga = !git lg --branches=* --remotes=*
 
 [core]
-    editor = emacs
+	editor = emacs
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
